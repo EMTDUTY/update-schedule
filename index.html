@@ -135,51 +135,21 @@ footer { margin-top: var(--section-space); padding: 28px 22px 42px; border-top: 
     line-height: 1.5; overflow-wrap: break-word; word-break: normal;text-align: left;}
  
    /* 왼쪽 설명 */
-  .callout:not(.right):not(.center) {
-    text-align: left;
-  }
+  .callout:not(.right):not(.center) {text-align: left;}
 
   /* 오른쪽 카운트 안내 */
-  .callout.right {
-    text-align: right;
-  }
+  .callout.right {text-align: right;}
 
   /* 연결선 */
-  .callout::after,
-  .callout.center::after,
-  .callout.right::after {
-    left: 0;
-    right: auto;
-    width: 34px;
-    bottom: 0;
-  }
-
-  .callout.right::after {
-    left: auto;
-    right: 0;
-  }
+  .callout::after, .callout.center::after, .callout.right::after {left: 0; right: auto; width: 34px; bottom: 0}
+  .callout.right::after {left: auto; right: 0;}
 
   /* 이미지 아래 가운데 설명 */
-  .mobile-center-callout {
-    display: block;
-    width: 100%;
-    margin: 12px auto 0;
-    padding-bottom: 12px;
-    text-align: center;
-    font-size: 11px;
-    line-height: 1.5;
-  }
-
-  .mobile-center-callout::after {
-    left: calc(50% - 17px);
-    right: auto;
-    width: 34px;
-  }
+  .mobile-center-callout {display: block; width: 100%; margin: 12px auto 0; padding-bottom: 12px; text-align: center; font-size: 11px; line-height: 1.5;}
+  .mobile-center-callout::after {left: calc(50% - 17px); right: auto; width: 34px; }
 
   /* 기존 가운데 설명은 모바일에서 숨김 */
-  .desktop-center-callout {
-    display: none;
-  }
+  .desktop-center-callout { display: none; }
   
   .schedule-frame { padding-top: 4px; }
   .system-panel { padding: 25px 17px 28px; border-radius: 18px; }
@@ -211,12 +181,34 @@ footer { margin-top: var(--section-space); padding: 28px 22px 42px; border-top: 
 }
 
 @media (max-width: 640px) {
-  /* 모바일에서는 기존 가운데 설명 숨기기 */
+/* 왼쪽 설명과 오른쪽 설명을 한 줄에 배치 */
+  .schedule-layout > .callout-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 12px;
+    align-items: start;
+  }
+
+  /* 기존 가운데 설명 숨기기 */
   .desktop-center-callout {
     display: none;
   }
 
-  /* 이미지 아래에 가운데 설명 표시 */
+  /* 왼쪽 설명 */
+  .schedule-layout > .callout-row > .callout:not(.center):not(.right) {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+  }
+
+  /* 오른쪽 설명 */
+  .schedule-layout > .callout-row > .callout.right {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+  }
+
+  /* 이미지 아래 가운데 설명 */
   .mobile-center-callout {
     display: block;
     width: 100%;
