@@ -158,6 +158,35 @@ footer { margin-top: var(--section-space); padding: 28px 22px 42px; border-top: 
 .count-message {
   display: block;
 }
+
+  /* 기본: PC에서는 원래 가운데 설명만 표시 */
+.mobile-center-callout {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  /* 모바일에서는 기존 가운데 설명 숨기기 */
+  .desktop-center-callout {
+    display: none;
+  }
+
+  /* 이미지 아래에 가운데 설명 표시 */
+  .mobile-center-callout {
+    display: block;
+    width: 100%;
+    margin: 12px auto 0;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.5;
+    padding-bottom: 12px;
+  }
+
+  .mobile-center-callout::after {
+    left: calc(50% - 21px);
+    right: auto;
+    width: 42px;
+  }
+}
 </style>
 </head>
 <body>
@@ -211,6 +240,7 @@ footer { margin-top: var(--section-space); padding: 28px 22px 42px; border-top: 
     <div class="schedule-layout">
       <div class="callout-row">
         <div class="callout"><strong>‘★이름’</strong> 변경 시<br>본인 행 (<span style="background-color: #fce8b2;">노란색</span>) 확인 가능</div>
+        <div class="callout center desktop-center-callout"> 근무 신청 시<br><span class="warning">자동 색 변경</span></div>
         <div class="callout right count-callout"><span class="count-title">색으로 카운트(<span class="warning">3개 초과 시</span>)</span>
   <span class="count-message">초과 메시지 생성</span></div>
       </div>
