@@ -130,11 +130,24 @@ footer { margin-top: var(--section-space); padding: 28px 22px 42px; border-top: 
   .lead { font-size: 15px; line-height: 1.42; }
   .sheet-callout { gap: 8px; font-size: 15px; margin-bottom: 18px; }
   :root { --line-length: 34px; --image-max: 100%; --body-size: 16px; }
-  .callout-row {display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: start; margin-bottom: 11px; width: 100%; min-width: 0; }
-  .callout, .callout.center, .callout.right {
-    position: relative; width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box;
-    text-align: left; padding: 0 0 12px; font-size: 11px; line-height: 1.5; overflow-wrap: break-word; word-break: normal;}
-  .callout::after, .callout.center::after, .callout.right::after { left: 0; right: auto; width: 34px; bottom: 0; }
+  .callout-row {display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; align-items: start; margin-bottom: 11px; width: 100%; min-width: 0;}
+
+  .callout, .callout.center,.callout.right {position: relative; width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box; padding: 0 0 12px; font-size: 11px;
+    line-height: 1.5; overflow-wrap: break-word; word-break: normal;}
+ 
+  /* 왼쪽 설명 */
+  .callout { text-align: left;}
+  /* 가운데 설명 */
+  .callout.center { text-align: center;}
+  /* 오른쪽 카운트 안내 */
+  .callout.right { text-align: right;}
+  .callout::after, .callout.center::after, .callout.right::after { left: 0; right: auto; width: 34px; bottom: 0;}
+
+  /* 가운데 설명의 연결선은 가운데 정렬 */
+  .callout.center::after {left: calc(50% - 17px);  }
+  /* 오른쪽 설명의 연결선은 오른쪽 정렬 */
+  .callout.right::after { left: auto; right: 0;}
+  
   .schedule-frame { padding-top: 4px; }
   .system-panel { padding: 25px 17px 28px; border-radius: 18px; }
   .caption { font-size: 13px; }
