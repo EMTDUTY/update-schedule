@@ -209,21 +209,23 @@ footer { margin-top: var(--section-space); padding: 28px 22px 42px; border-top: 
   }
 
   /* 이미지 아래 가운데 설명 */
-  .mobile-center-callout {
-    display: block;
-    width: 100%;
-    margin: 12px auto 0;
-    text-align: center;
-    font-size: 11px;
-    line-height: 1.5;
-    padding-bottom: 12px;
-  }
+.mobile-center-callout {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.5;
+  padding-bottom: 12px;
+}
 
-  .mobile-center-callout::after {
-    left: calc(50% - 21px);
-    right: auto;
-    width: 42px;
-  }
+.mobile-center-callout::after {
+  left: 50%;
+  right: auto;
+  width: 42px;
+  transform: translateX(-50%);
+}
 }
 </style>
 </head>
