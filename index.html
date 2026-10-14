@@ -122,8 +122,8 @@ footer { margin-top: var(--section-space); padding: 28px 22px 42px; border-top: 
   .hero { padding: 54px 18px 36px; }
   header h1 { font-size: 32px; /* 모바일 제목 크기 조절: 이 값을 수정하세요 */ letter-spacing: -.045em; }
   .hero-year { font-size: 21px; }
-  .hero-nav { gap: 8px; margin-top: 24px; }
-  .pill { padding: 7px 10px; font-size: 11px; }
+    .hero-nav {display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; margin-top: 24px; padding: 0; width: 100%;}
+  .pill { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 7px 10px; font-size: 11px; line-height: 1.4; white-space: nowrap; flex: 0 0 auto; max-width: 100%;}
   .section { padding: 82px 18px 0; }
   .section-head { margin-bottom: 27px; }
   h2 { font-size: 30px; }
