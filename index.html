@@ -111,9 +111,6 @@ h2 { margin: 8px 0 10px; font-size: clamp(30px, 4.2vw, 46px); line-height: 1.16;
 }
 .system-panel h3 { margin: 0 0 10px; font-size: clamp(23px, 3vw, 30px); letter-spacing: -.035em; }
 .system-panel p { margin: 0; color: var(--muted); font-size: 15px; }
-.progress { width: min(360px, 78%); height: 4px; margin: 24px auto 0; background: #dedee3; border-radius: 9px; overflow: hidden; }
-.progress span { display:block; width: 38%; height:100%; border-radius:inherit; background: var(--blue); animation: loading 2.2s ease-in-out infinite; }
-@keyframes loading { 0% { transform:translateX(-110%); } 100% { transform:translateX(370%); } }
 footer { margin-top: var(--section-space); padding: 28px 22px 42px; border-top: 1px solid var(--line); text-align:center; color:var(--muted); font-size:12px; }
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
 .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -201,15 +198,18 @@ footer { margin-top: var(--section-space); padding: 28px 22px 42px; border-top: 
   }
 }
 
-/* 원형 로딩 애니메이션 */
+/* PC 및 모바일 공통 원형 로딩 */
 .loading-circle {
+  display: block;
   width: 55px;
   height: 55px;
-  margin: 25px auto;
-  border: 6px solid #dedee3;
-  border-top: 6px solid var(--blue);
+  margin: 24px auto 0;
+  box-sizing: border-box;
+  border: 5px solid #dedee3;
+  border-top-color: var(--blue);
   border-radius: 50%;
   animation: spin 1s linear infinite;
+  flex-shrink: 0;
 }
 
 @keyframes spin {
@@ -289,7 +289,7 @@ footer { margin-top: var(--section-space); padding: 28px 22px 42px; border-top: 
   <!-- 4. 시스템 처리 시간 안내: PPT 5번 슬라이드에는 별도 그림이 없어 원문을 보존 -->
   <section class="section reveal" id="system-time">
     <div class="section-head">
-      <h2>작업  처리 시간 안내</h2>
+      <h2>작업 처리 시간 안내</h2>
     </div>
     <div class="system-panel">
       <h3>로딩 중</h3>
